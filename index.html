@@ -1,15 +1,27 @@
+<!DOCTYPE HTML>
 <html>
-<body>
+ <head>
+  <title>PhoneGap</title>
+  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+  <script>
+  
+  function click_funtion()
+  {
+  	alert("Click Function");
+  	cordova.plugins.notification.local.on("trigger", function(notification) 
+{
+alert("Notification");
+    alert("triggered: " + notification.id);
+});
+  	
+    
 
-<div class='header'><h1>Home</h1></div>
-<div class='search-view'>
-<input class='search-key' type="text"/>
-<ul class='employee-list'></ul>
-</div>
-
-<script src="lib/jquery-1.8.2.min.js"></script>
-<script src="js/storage/memory-store.js"></script>
-<script src="js/main.js"></script>
-
-</body>
+  }
+  </script>
+ </head>
+ <body>
+    <h1>Notification</h1>
+     <button type="button" name="go" id="submit_button" onclick="click_funtion();">Register</button>
+        
+ </body>
 </html>
