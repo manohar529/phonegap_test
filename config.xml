@@ -14,8 +14,8 @@
     <author href="http://coenraets.org" email="ccoenraets@gmail.com">
         Christophe Coenraets
     </author>
-      <preference name="android-build-tool" value="gradle" /> 
-<gap:plugin name="de.appplant.cordova.plugin.local-notification" source="npm" />
+
+<plugin name="de.appplant.cordova.plugin.local-notification" spec="0.8.1" source="pgb" />
     <feature name="http://api.phonegap.com/1.0/camera"/>
     <feature name="http://api.phonegap.com/1.0/contacts"/>
     <feature name="http://api.phonegap.com/1.0/file"/>
