@@ -1,53 +1,40 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
- <head>
-  <title>PhoneGap</title>
-  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-  <script>
-  
-document.addEventListener('deviceready', function () {
-    // Schedule notification for tomorrow to remember about the meeting
-    alert('device_ready');
-    cordova.plugins.notification.local.schedule({
-        id: 10,
-        title: "Meeting in 15 minutes!",
-        text: "Jour fixe Produktionsbesprechung",
-        at: today_at_12_10_pm,
-        data: { meetingId:"#123FG8" }
-    });
+  <head>
+    <title>Notification Example</title>
 
-    // Join BBM Meeting when user has clicked on the notification 
-    cordova.plugins.notification.local.on("click", function (notification) {
-        if (notification.id == 10) {
-            joinMeeting(notification.data.meetingId);
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        // Empty
+    }
+
+    // alert dialog dismissed
+        function alertDismissed() {
+            // do something
         }
-    });
 
-    // Notification has reached its trigger time (Tomorrow at 8:45 AM)
-    cordova.plugins.notification.local.on("trigger", function (notification) {
-        if (notification.id != 10)
-            return;
+    // Show a custom alertDismissed
+    //
+    function showAlert() {
+        navigator.notification.alert(
+            'You are the winner!',  // message
+            alertDismissed,         // callback
+            'Game Over',            // title
+            'Done'                  // buttonName
+        );
+    }
 
-        // After 10 minutes update notification's title 
-        setTimeout(function () {
-            cordova.plugins.notification.local.update({
-                id: 10,
-                title: "Meeting in 5 minutes!"
-            });
-        }, 600000);
-    });
-}, false);
-  
-  
-  
-  
-  
-  
-  </script>
- </head>
- <body>
-    <h1>Notification</h1>
-     <button type="button" name="go" id="submit_button" onclick="click_funtion();">Register</button>
-        
- </body>
+    </script>
+  </head>
+  <body>
+    <p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
+  </body>
 </html>
