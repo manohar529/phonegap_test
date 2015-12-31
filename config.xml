@@ -15,7 +15,6 @@
         Christophe Coenraets
     </author>
 
-<plugin name="de.appplant.cordova.plugin.local-notification" spec="0.8.1" source="pgb" />
     <feature name="http://api.phonegap.com/1.0/camera"/>
     <feature name="http://api.phonegap.com/1.0/contacts"/>
     <feature name="http://api.phonegap.com/1.0/file"/>
